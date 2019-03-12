@@ -48,7 +48,7 @@ public class Main {
                                                        " " + NumberFormat.getCurrencyInstance().format(transaction.getTransactionAmount()));
         }
     }
-
+// Sam is making it up as he goes
 
     private static String requestString(String msg){
         Scanner scanner = new Scanner(System.in);
