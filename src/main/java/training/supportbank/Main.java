@@ -13,7 +13,7 @@ public class Main {
 
 
         Bank supportBank = new Bank();
-        List<Transaction> transactions = ReadCSVFile.getTransactionsFromFile("Transactions2014.csv");
+        List<Transaction> transactions = ReadCSVFile.getTransactionsFromFile("DodgyData.csv");
         for (Transaction transaction : transactions) {
             supportBank.includeTransaction(transaction);
         }
@@ -24,7 +24,6 @@ public class Main {
             listAllAccounts(supportBank);
         } else if (input.contains("list")) {
             listSingleAccount(supportBank,input.substring(5));
-
         }
     }
 
