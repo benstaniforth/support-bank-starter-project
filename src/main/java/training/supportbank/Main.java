@@ -1,20 +1,33 @@
 package training.supportbank;
 
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 import java.io.IOException;
 import java.text.NumberFormat;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
 public class Main {
+
+    private static final Logger LOGGER = LogManager.getLogger();
     public static void main(String args[]) throws IOException {
-
-
+        LOGGER.info("SupportBank starting up!");
+        LOGGER.info("Creating a new bank");
 
         Bank supportBank = new Bank();
+
+        LOGGER.info("Reading from csv file DodgyData.csv");
+        
         List<Transaction> transactions = ReadCSVFile.getTransactionsFromFile("DodgyData.csv");
+        LOGGER.info("Cycling through Transactions from CSV file");
         for (Transaction transaction : transactions) {
+            LOGGER.debug("Date: " + transaction.getDate() +
+                            " From: " + transaction.getTransactionFrom() +
+                            " To: " + transaction.getTransactionTo() +
+                            " Narrative: " + transaction.getNarrative() +
+                            " Amount: " + transaction.getTransactionAmount());
             supportBank.includeTransaction(transaction);
         }
 

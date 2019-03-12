@@ -1,10 +1,15 @@
 package training.supportbank;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 
 public class Account {
+    private static final Logger LOGGER = LogManager.getLogger();
+
 
     private String name;
     private BigDecimal balance;
@@ -29,6 +34,7 @@ public class Account {
     }
 
     public void updateBalanceIncludeTransaction(Transaction transaction) {
+
         if (transaction.getTransactionFrom().equals(name)) {
             balance = balance.subtract(transaction.getTransactionAmount());
         } else if (transaction.getTransactionTo().equals(name)) {
