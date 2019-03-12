@@ -13,6 +13,6 @@ public class Main {
         for (Transaction transaction : transactions) {
             supportBank.includeTransaction(transaction);
         }
-        System.out.println("Bank full");
+        System.out.println("Bank is full");
     }
 }
