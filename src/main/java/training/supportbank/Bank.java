@@ -16,8 +16,8 @@ public class Bank {
     }
 
     public void includeTransaction(Transaction transaction) {
-        Account fromAccount = accountWithName(transaction.getTransactionFrom());
-        Account toAccount = accountWithName(transaction.getTransactionTo());
+        Account fromAccount = accountWithName(transaction.getFromAccount());
+        Account toAccount = accountWithName(transaction.getToAccount());
         fromAccount.updateBalanceIncludeTransaction(transaction);
         toAccount.updateBalanceIncludeTransaction(transaction);
     }

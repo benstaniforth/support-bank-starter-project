@@ -6,37 +6,37 @@ import java.time.LocalDate;
 public class Transaction {
 
     private LocalDate date;
-    private String transactionFrom;
-    private String transactionTo;
+    private String fromAccount;
+    private String toAccount;
     private String narrative;
-    private BigDecimal transactionAmount;
+    private BigDecimal amount;
 
-    public Transaction(LocalDate date, String transactionFrom, String transactionTo, String narrative, BigDecimal transactionAmount) {
+    public Transaction(LocalDate date, String fromAccount, String toAccount, String narrative, BigDecimal amount) {
         this.date = date;
-        this.transactionFrom = transactionFrom;
-        this.transactionTo = transactionTo;
+        this.fromAccount = fromAccount;
+        this.toAccount = toAccount;
         this.narrative = narrative;
-        this.transactionAmount = transactionAmount;
+        this.amount = amount;
     }
 
     public LocalDate getDate() {
         return date;
     }
 
-    public String getTransactionFrom() {
-        return transactionFrom;
+    public String getFromAccount() {
+        return fromAccount;
     }
 
-    public String getTransactionTo() {
-        return transactionTo;
+    public String getToAccount() {
+        return toAccount;
     }
 
     public String getNarrative() {
         return narrative;
     }
 
-    public BigDecimal getTransactionAmount() {
-        return transactionAmount;
+    public BigDecimal getAmount() {
+        return amount;
     }
 }
 

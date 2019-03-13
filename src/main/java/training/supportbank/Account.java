@@ -35,10 +35,10 @@ public class Account {
 
     public void updateBalanceIncludeTransaction(Transaction transaction) {
 
-        if (transaction.getTransactionFrom().equals(name)) {
-            balance = balance.subtract(transaction.getTransactionAmount());
-        } else if (transaction.getTransactionTo().equals(name)) {
-            balance = balance.add(transaction.getTransactionAmount());
+        if (transaction.getFromAccount().equals(name)) {
+            balance = balance.subtract(transaction.getAmount());
+        } else if (transaction.getToAccount().equals(name)) {
+            balance = balance.add(transaction.getAmount());
         }
         transactions.add(transaction);
     }

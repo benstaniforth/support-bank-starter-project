@@ -17,7 +17,7 @@ import java.util.zip.DataFormatException;
 
 public class ReadCSVFile {
     private static final Logger LOGGER = LogManager.getLogger();
-    public static List<Transaction> getTransactionsFromFile (String filename) throws IOException {
+    public static List<Transaction> getTransactionsFromCSV(String filename) throws IOException {
 
         LOGGER.info("About to read CSV File");
 

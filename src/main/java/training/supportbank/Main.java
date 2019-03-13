@@ -6,8 +6,6 @@ import org.apache.logging.log4j.Logger;
 
 import java.io.IOException;
 import java.text.NumberFormat;
-import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
 import java.util.List;
 import java.util.Scanner;
 
@@ -22,14 +20,15 @@ public class Main {
 
         LOGGER.info("Reading from csv file DodgyData.csv");
 
-        List<Transaction> transactions = ReadCSVFile.getTransactionsFromFile("DodgyData.csv");
+        //List<Transaction> transactions = ReadCSVFile.getTransactionsFromCSV("DodgyData.csv");
+        List<Transaction> transactions = ReadingJSONFile.getTransactionsFromJSON("DodgyData.csv");
         LOGGER.info("Cycling through Transactions from CSV file");
         for (Transaction transaction : transactions) {
             LOGGER.debug("Date: " + transaction.getDate() +
-                            " From: " + transaction.getTransactionFrom() +
-                            " To: " + transaction.getTransactionTo() +
+                            " From: " + transaction.getFromAccount() +
+                            " To: " + transaction.getToAccount() +
                             " Narrative: " + transaction.getNarrative() +
-                            " Amount: " + transaction.getTransactionAmount());
+                            " Amount: " + transaction.getAmount());
             supportBank.includeTransaction(transaction);
         }
 
@@ -56,10 +55,10 @@ public class Main {
     private static void listSingleAccount(Bank bank, String accountName) {
         Account individualsAccount = bank.accountWithName(accountName);
         for (Transaction transaction : individualsAccount.getTransactions()) {
-            System.out.println(transaction.getDate() + " : " + transaction.getTransactionFrom() +
-                                                       " owes " + transaction.getTransactionTo() +
+            System.out.println(transaction.getDate() + " : " + transaction.getFromAccount() +
+                                                       " owes " + transaction.getToAccount() +
                                                        " for " + transaction.getNarrative() +
-                                                       " " + NumberFormat.getCurrencyInstance().format(transaction.getTransactionAmount()));
+                                                       " " + NumberFormat.getCurrencyInstance().format(transaction.getAmount()));
         }
     }
 // Sam is making it up as he goes
