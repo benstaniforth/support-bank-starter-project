@@ -19,7 +19,7 @@ public class Main {
         Bank supportBank = new Bank();
 
         LOGGER.info("Reading from csv file DodgyData.csv");
-        
+
         List<Transaction> transactions = ReadCSVFile.getTransactionsFromFile("DodgyData.csv");
         LOGGER.info("Cycling through Transactions from CSV file");
         for (Transaction transaction : transactions) {
